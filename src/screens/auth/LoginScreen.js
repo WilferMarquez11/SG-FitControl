@@ -192,7 +192,7 @@ const styles = StyleSheet.create({
   hint: { fontSize: 12, alignSelf: 'flex-start', marginBottom: 14, marginLeft: 4 },
   btnPrimario: {
     borderRadius: 8,
-    paddingVertical: 15,
+    paddingVertical: 14,
     width: '100%',
     alignItems: 'center',
     marginTop: 8,
