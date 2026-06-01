@@ -1,0 +1,46 @@
+export const palette = {
+  azulOscuro: '#181B3A',
+  azulMedio: '#1a1a2e',
+  naranja: '#FF9045',
+  blanco: '#ffffff',
+  negro: '#000000',
+  rojo: '#E24B4A',
+  grisClaro: '#888888',
+  grisMedio: '#999999',
+  grisOscuro: '#cccccc',
+  fondoOscuro: '#23252E',
+  inputOscuro: '#2E3038',
+  bordeOscuro: '#3A3D46',
+};
+
+export const lightTheme = {
+  fondo: palette.blanco,
+  texto: palette.azulOscuro,
+  subtexto: palette.grisClaro,
+  inputBg: palette.blanco,
+  inputBorder: palette.grisOscuro,
+  inputTexto: palette.negro,
+  placeholder: palette.grisMedio,
+  icono: palette.negro,
+  botonPrimario: palette.azulOscuro,
+  botonPrimarioTexto: palette.blanco,
+  botonSecundarioBorde: palette.grisOscuro,
+  botonSecundarioTexto: palette.azulOscuro,
+  acento: palette.naranja,
+};
+
+export const darkTheme = {
+  fondo: palette.fondoOscuro,
+  texto: palette.blanco,
+  subtexto: palette.grisClaro,
+  inputBg: palette.inputOscuro,
+  inputBorder: palette.bordeOscuro,
+  inputTexto: palette.blanco,
+  placeholder: palette.grisClaro,
+  icono: palette.blanco,
+  botonPrimario: palette.naranja,
+  botonPrimarioTexto: palette.blanco,
+  botonSecundarioBorde: palette.bordeOscuro,
+  botonSecundarioTexto: palette.blanco,
+  acento: palette.naranja,
+};
