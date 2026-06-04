@@ -10,10 +10,15 @@ import RegisterScreen from '../screens/auth/RegisterScreen';
 import PanelAdminScreen from '../screens/admin/PanelAdminScreen';
 
 import PanelUserScreen from '../screens/user/PanelUserScreen';
+import PanelEntrenadorScreen from '../screens/user/PanelEntrenadorScreen';
+import RegistrarEntrenadorScreen from '../screens/user/RegistrarEntrenadorScreen';
 import RegistrarClientesScreen from '../screens/user/RegistrarClientesScreen';
 import RegistrarMembresiasScreen from '../screens/user/RegistrarMembresiasScreen';
 import RegistrarPagosScreen from '../screens/user/RegistrarPagosScreen';
 import RegistrarAsistenciasScreen from '../screens/user/RegistrarAsistenciasScreen';
+
+
+import TiposMembresiasScreen from '../screens/user/TiposMembresiasScreen';
 
 import GestionClientesScreen from '../screens/user/GestionClientesScreen';
 import GestionMembresiasScreen from '../screens/user/GestionMembresiasScreen';
@@ -35,6 +40,8 @@ export default function AppNavigator() {
                 <Stack.Screen name="Registrar" component={RegisterScreen} />
                 <Stack.Screen name="PanelAdmin" component={PanelAdminScreen} />
                 <Stack.Screen name="PanelUser" component={PanelUserScreen} />
+                <Stack.Screen name="PanelEntrenador" component={PanelEntrenadorScreen} />
+                <Stack.Screen name="RegistrarEntrenador" component={RegistrarEntrenadorScreen} />
                 <Stack.Screen name="RegistrarClientes" component={RegistrarClientesScreen} />
                 <Stack.Screen name="RegistrarMembresias" component={RegistrarMembresiasScreen} />
                 <Stack.Screen name="RegistrarPagos" component={RegistrarPagosScreen} />
@@ -43,6 +50,7 @@ export default function AppNavigator() {
                 <Stack.Screen name="GestionMembresias" component={GestionMembresiasScreen} />
                 <Stack.Screen name="GestionPagos" component={GestionPagosScreen} />
                 <Stack.Screen name="GestionAsistencias" component={GestionAsistenciasScreen} />
+                <Stack.Screen name="TiposMembresias" component={TiposMembresiasScreen} />
             </Stack.Navigator>
         </NavigationContainer>
     );

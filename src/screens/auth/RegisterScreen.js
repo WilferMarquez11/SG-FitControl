@@ -34,7 +34,6 @@ export default function RegisterScreen({ navigation }) {
   const { tema, modoOscuro, toggleTema } = useTheme();
 
   const handleRegister = async () => {
-    // Validaciones obligatorias
     if (!nombreGym.trim() || !representante.trim() || !tipoDocumento || !numeroDocumento.trim() || !email.trim() || !password || !confirmarPassword) {
       Alert.alert("Error", "Por favor completa todos los campos obligatorios");
       return;
@@ -52,7 +51,6 @@ export default function RegisterScreen({ navigation }) {
       const userCredential = await createUserWithEmailAndPassword(auth, email.trim(), password);
       const user = userCredential.user;
 
-      // Fecha y hora
       const ahora = new Date();
       const fechaRegistro = {
         fecha: ahora.toLocaleDateString('es-CO'),
@@ -64,9 +62,9 @@ export default function RegisterScreen({ navigation }) {
         representante: representante.trim(),
         tipoDocumento,
         numeroDocumento: numeroDocumento.trim(),
-        telefono: telefono.trim(),        // opcional
+        telefono: telefono.trim(),
         email: user.email.trim(),
-        role: "cliente",
+        rol: "user", // ✅ corregido
         fechaRegistro: fechaRegistro,
       });
 
@@ -92,7 +90,6 @@ export default function RegisterScreen({ navigation }) {
       enableOnAndroid={true}
       extraScrollHeight={20}
     >
-      {/* Toggle tema */}
       <TouchableOpacity style={styles.temaBtn} onPress={toggleTema}>
         <MaterialIcons
           name={modoOscuro ? "wb-sunny" : "nightlight-round"}
@@ -101,7 +98,6 @@ export default function RegisterScreen({ navigation }) {
         />
       </TouchableOpacity>
 
-      {/* Logo */}
       <Image
         source={modoOscuro
           ? require('../../../assets/2LogoIconoPrincipal.png')
@@ -180,7 +176,7 @@ export default function RegisterScreen({ navigation }) {
         />
       </View>
 
-      {/* Teléfono — opcional */}
+      {/* Teléfono */}
       <Text style={[styles.label, { color: tema.texto }]}>
         Teléfono <Text style={[styles.opcional, { color: tema.subtexto }]}>(opcional)</Text>
       </Text>
@@ -196,7 +192,7 @@ export default function RegisterScreen({ navigation }) {
         />
       </View>
 
-      {/* Correo Electrónico */}
+      {/* Correo */}
       <Text style={[styles.label, { color: tema.texto }]}>
         Correo Electrónico <Text style={styles.requerido}>*</Text>
       </Text>
@@ -234,11 +230,7 @@ export default function RegisterScreen({ navigation }) {
           secureTextEntry={!showPassword}
         />
         <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
-          <MaterialIcons
-            name={showPassword ? 'visibility' : 'visibility-off'}
-            size={22}
-            color={tema.icono}
-          />
+          <MaterialIcons name={showPassword ? 'visibility' : 'visibility-off'} size={22} color={tema.icono} />
         </TouchableOpacity>
       </View>
 
@@ -263,20 +255,14 @@ export default function RegisterScreen({ navigation }) {
           secureTextEntry={!showConfirmar}
         />
         <TouchableOpacity onPress={() => setShowConfirmar(!showConfirmar)}>
-          <MaterialIcons
-            name={showConfirmar ? 'visibility' : 'visibility-off'}
-            size={22}
-            color={tema.icono}
-          />
+          <MaterialIcons name={showConfirmar ? 'visibility' : 'visibility-off'} size={22} color={tema.icono} />
         </TouchableOpacity>
       </View>
 
-      {/* Leyenda campos obligatorios */}
       <Text style={[styles.leyenda, { color: tema.subtexto }]}>
         <Text style={styles.requerido}>*</Text> Campos obligatorios
       </Text>
 
-      {/* Botón Crear Cuenta */}
       <TouchableOpacity
         style={[styles.btnPrimario, { backgroundColor: tema.botonPrimario }]}
         onPress={handleRegister}
@@ -286,18 +272,14 @@ export default function RegisterScreen({ navigation }) {
         </Text>
       </TouchableOpacity>
 
-      {/* Volver al Login */}
       <TouchableOpacity onPress={() => navigation.navigate("Login")}>
         <Text style={[styles.volverLogin, { color: tema.acento }]}>
           ¿Ya tienes cuenta? Inicia Sesión
         </Text>
       </TouchableOpacity>
 
-
-
     </KeyboardAwareScrollView>
   );
-
 }
 
 const styles = StyleSheet.create({
@@ -339,6 +321,4 @@ const styles = StyleSheet.create({
   },
   btnPrimarioTexto: { fontSize: 18, fontWeight: 'bold' },
   volverLogin: { fontSize: 14, textDecorationLine: 'underline', marginBottom: 80 },
-  byText: { fontSize: 14 },
-  companyText: { fontSize: 16, fontWeight: 'bold' },
 });

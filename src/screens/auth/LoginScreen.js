@@ -33,10 +33,10 @@ export default function LoginScreen({ navigation }) {
           navigation.replace("PanelAdmin");
         } else if (data.rol === "user") {
           navigation.replace("PanelUser");
-        } else if (data.rol === "coach") {
-          navigation.replace("PanelCoach");
+        } else if (data.rol === "coach" || data.rol === "entrenador") {
+          navigation.replace("PanelEntrenador"); // ✅ corregido
         } else {
-          Alert.alert("⚠️ Error", "Rol no reconocido");
+          Alert.alert("⚠️ Error", `Rol no reconocido: ${data.rol}`);
         }
       } else {
         if (user.email === "vitalsport@gmail.com") {
@@ -58,14 +58,14 @@ export default function LoginScreen({ navigation }) {
   };
 
   return (
-   <KeyboardAwareScrollView
-         style={[styles.scroll, { backgroundColor: tema.fondo }]}
-         contentContainerStyle={styles.scrollContent}
-         keyboardShouldPersistTaps="handled"
-         showsVerticalScrollIndicator={false}
-         enableOnAndroid={true}
-         extraScrollHeight={20}
-       >
+    <KeyboardAwareScrollView
+      style={[styles.scroll, { backgroundColor: tema.fondo }]}
+      contentContainerStyle={styles.scrollContent}
+      keyboardShouldPersistTaps="handled"
+      showsVerticalScrollIndicator={false}
+      enableOnAndroid={true}
+      extraScrollHeight={20}
+    >
       {/* Toggle tema */}
       <TouchableOpacity style={styles.temaBtn} onPress={toggleTema}>
         <MaterialIcons
@@ -161,7 +161,7 @@ export default function LoginScreen({ navigation }) {
         <Text style={[styles.companyText, { color: tema.texto }]}>WO Devs</Text>
       </View>
 
-     </KeyboardAwareScrollView>
+    </KeyboardAwareScrollView>
   );
 }
 
@@ -203,7 +203,6 @@ const styles = StyleSheet.create({
   footer: { marginTop: 100, alignItems: 'center' },
   byText: { fontSize: 14 },
   companyText: { fontSize: 16, fontWeight: 'bold' },
-
   btnSecundario: {
     borderRadius: 8,
     paddingVertical: 14,
